@@ -54,7 +54,7 @@ myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$locat
 
         $http.post('../api/registerUser.php', userAuthdata).then(function (success) {
 
-            console.log("......................"+JSON.stringify(userAuthdata));
+            console.log("......................" + JSON.stringify(userAuthdata));
 
             console.log("Account Successfully created!" + success.data);
             //gotoMainPage();

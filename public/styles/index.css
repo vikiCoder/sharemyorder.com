@@ -1,56 +1,63 @@
-*{
-  padding: 0px;
-  margin:0px;
-}
-body{
-  background-color: #F8F8F8;
-}
-.menuitem{
-  cursor: pointer;
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color:#EEEEEE;
-  padding:15px;
+* {
+    padding: 0px;
+    margin: 0px;
 }
 
-#mynbar{
-  background-color: #292929;
-}
-.mycontainer{
-  background-color: white;
-  margin-top: 100px;
-  padding: 5px;
-  border-radius: 5px;
-  border:1px solid #EEEEEE;
-  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.24);
-  /*-webkit-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.24);
--moz-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.24);
-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.24);*/
-}
-.myh1{
-  padding:20px;
-  color: #5E5E5E;
+body {
+    background-color: #F8F8F8;
 }
 
-.collage{
-  padding:10px;
-  cursor: pointer;
+.menuitem {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #EEEEEE;
+    padding: 15px;
 }
-.collage:hover{
-  background-color: #292929;
-  color:white;
+
+#mynbar {
+    background-color: #292929;
 }
-.mynavcontainer li{
-  margin:5px;
+
+.mycontainer {
+    background-color: white;
+    margin-top: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #EEEEEE;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.24);
+    /*-webkit-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.24);
+  -moz-box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.24);
+  box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.24);*/
 }
-.menuitemlink{
-  text-decoration: none;
-  height:100%;
-  color:#292929;
-  border-radius: 5px;
-  background-color: #F8F8F8;
+
+.myh1 {
+    padding: 20px;
+    color: #5E5E5E;
+}
+
+.collage {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.collage:hover {
+    background-color: #292929;
+    color: white;
+}
+
+.mynavcontainer li {
+    margin: 5px;
+}
+
+.menuitemlink {
+    text-decoration: none;
+    height: 100%;
+    color: #292929;
+    border-radius: 5px;
+    background-color: #F8F8F8;
 
 }
 
