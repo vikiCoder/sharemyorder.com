@@ -1,8 +1,8 @@
 <!doctype html>
-<html ng-app = "myApp">
+<html ng-app="myApp">
 <head>
-  <meta charset="utf-8"/>
-  <title>the best app</title>
+    <meta charset="utf-8"/>
+    <title>the best app</title>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
@@ -10,16 +10,16 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!--  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
-    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.js"></script>-->
-    <script src = "http://code.angularjs.org/latest/angular.min.js"></script>
-    <script src = "http://code.angularjs.org/latest/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--  <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.js"></script>-->
+    <script src="http://code.angularjs.org/latest/angular.min.js"></script>
+    <script src="http://code.angularjs.org/latest/angular-route.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
-    
-    <script src = "scripts/controller.js"></script>
-    <script src = "index.js"></script>
+
+    <script src="scripts/controller.js"></script>
+    <script src="index.js"></script>
 
     <link rel="stylesheet" href="styles/index.css"/>
     <link rel="stylesheet" href="styles/animate.css"/>
@@ -27,37 +27,43 @@
 <body>
 
 
-      <div class="navbar navbar-default navbar-fixed-top" id="mynabar">
-          <div class="container">
-              <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse"  data-target="#myNavbar">
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
+<div class="navbar navbar-default navbar-fixed-top" id="mynabar">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
 
-                  </button>
-                  <a class="navbar-brand" href="index.html">Share My Order</a>
-              </div>
-              <div class="collapse navbar-collapse" id="myNavbar">
+            </button>
+            <a class="navbar-brand" href="index.html">Share My Order</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
 
-                  <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav navbar-right">
 
 
-                      <li class="menuitem"><a href="#login">LOGIN</a></li>
+                <li class="menuitem"><a href="#login">LOGIN</a></li>
 
-                      <li class="menuitem"><a href="#signup">SIGNUP</a></li>
-                 </ul>
-              </div>
-          </div>
-      </div>
-
+                <li class="menuitem"><a href="#signup">SIGNUP</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 <div class="row">
-  <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-10 mycontainer">
+    <div class="col-xs-offset-1 col-xs-10 col-md-offset-1 col-md-10 mycontainer">
 
-      <div ng-view>
-      </div>
-  </div>
+        <div ng-view>
+        </div>
+    </div>
 </div>
+
+<div>
+    <form method="post" action="api/createDb.php">
+        <input type="submit">
+    </form>
+</div>
+
 </body>
 </html>
