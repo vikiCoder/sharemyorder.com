@@ -21,11 +21,12 @@ myApp.config(['$routeProvider',function($routeProvider){
 
 }]);
 
-myApp.controller('AppCtrlSignup', ['$scope','$log','$http','$window', function($scope,$log,$http,$window){
+myApp.controller('AppCtrlSignup', ['$scope','$log','$http','$window','$location', function($scope,$log,$http,$window,$location){
 $scope.selectedcollage = "collage";
 $scope.collages = ["DAIICT", "PDPU", "NIRMA", "IITB", "IITGN"];
 console.log($scope.collages);
 $scope.signup = function(){
+
 
   var userAuthdata = {
     firstname:$scope.fnamesu,
@@ -36,6 +37,8 @@ $scope.signup = function(){
     pin:$scope.pincodesu,
     collage:$scope.selectedcollage
   }
+
+
 console.log("Coming to Signup controller with " + userAuthdata.firstname);
 
 
@@ -56,6 +59,8 @@ $http.post('/registeruser',userAuthdata).then(function (success){
 
 
     console.log("Account Successfully created!");
+    gotoMainPage();
+
    },function (error){
      console.log("Error in making new Account!");
    });
@@ -71,6 +76,20 @@ myApp.controller('AppCtrlLogin', ['$scope','$log','$http','$window',function($sc
 
   $scope.login = function(){
   console.log("Coming to Login controller with " + $scope.emailid + " " + $scope.passw);
+
+  var userAuthdata = {
+    email:$scope.emailid,
+      password:$scope.passw
+  }
+
+      $http.post('/loginuser',userAuthdata).then(function (success){
+
+
+          console.log("Logged In!");
+
+      },function (error){
+          console.log("Error in login !");
+      });
   }
 
 }]);
