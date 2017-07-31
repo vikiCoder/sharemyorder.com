@@ -1,8 +1,4 @@
-
-
-
-var myApp = angular.module('myAppMain' , ['ngRoute']);
-
+var myApp = angular.module('myAppMain', ['ngRoute']);
 
 
 // myApp.config(['$routeProvider',function($routeProvider){
@@ -21,7 +17,7 @@ var myApp = angular.module('myAppMain' , ['ngRoute']);
 //
 // }]);
 
-myApp.controller('AppCtrlSignup', ['$scope','$log','$http','$window','$location', function($scope,$log,$http,$window,$location){
+myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$location', function ($scope, $log, $http, $window, $location) {
 
 
 }]);

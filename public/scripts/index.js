@@ -1,4 +1,3 @@
-function gotoMainPage(){
-     window.location = "mainpage.html";
-
+function gotoMainPage() {
+    window.location = "mainpage.html";
 }

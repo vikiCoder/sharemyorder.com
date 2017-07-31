@@ -15,7 +15,7 @@ body{
   padding:15px;
 }
 
-#mynabar{
+#mynbar{
   background-color: #292929;
 }
 .mycontainer{
@@ -33,6 +33,7 @@ box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.24);*/
   padding:20px;
   color: #5E5E5E;
 }
+
 .collage{
   padding:10px;
   cursor: pointer;
@@ -41,3 +42,16 @@ box-shadow: 1px 2px 3px 0px rgba(0,0,0,0.24);*/
   background-color: #292929;
   color:white;
 }
+.mynavcontainer li{
+  margin:5px;
+}
+.menuitemlink{
+  text-decoration: none;
+  height:100%;
+  color:#292929;
+  border-radius: 5px;
+  background-color: #F8F8F8;
+
+}
+
+
