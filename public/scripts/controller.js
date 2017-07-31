@@ -25,17 +25,18 @@ myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$locat
 
 
         var userAuthdata = {
-            firstname: $scope.fnamesu,
-            lastname: $scope.snamesu,
+            uname: $scope.unamesu,
+            fname: $scope.fnamesu,
+            lname: $scope.snamesu,
             email: $scope.emailidsu,
             password: $scope.passwsu,
             mobile: $scope.mobilenosu,
-            pin: $scope.pincodesu,
+            pincode: $scope.pincodesu,
             collage: $scope.selectedcollage
         }
 
 
-        console.log("Coming to Signup controller with " + userAuthdata.firstname);
+        console.log("Coming to Signup controller with " + userAuthdata.fname);
 
 
 // $http.get('http://localhost:8888/followed/'+item).then(function (success){
@@ -51,11 +52,12 @@ myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$locat
 //    });
 
 
-        $http.post('/registeruser', userAuthdata).then(function (success) {
+        $http.post('../api/registerUser.php', userAuthdata).then(function (success) {
 
+            console.log("......................"+JSON.stringify(userAuthdata));
 
-            console.log("Account Successfully created!");
-            gotoMainPage();
+            console.log("Account Successfully created!" + success.data);
+            //gotoMainPage();
 
         }, function (error) {
             console.log("Error in making new Account!");
