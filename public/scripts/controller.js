@@ -57,7 +57,7 @@ myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$locat
             console.log("......................" + JSON.stringify(userAuthdata));
 
             console.log("Account Successfully created!" + success.data);
-            //gotoMainPage();
+            gotoMainPage();
 
         }, function (error) {
             console.log("Error in making new Account!");
