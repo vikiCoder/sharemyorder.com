@@ -45,7 +45,9 @@ if(isset($uid)) {
         $db -> close();
         return;
     }else{
-        sendResponce(200, "ok", $result->fetch_assoc());
+        $data = $result->fetch_assoc();
+        $data['GROUPS'] = getArrayFromNumberString(data['GROUPS']);
+        sendResponce(200, "ok", $data);
         $result -> close();
         $query -> close();
         $db -> close();
@@ -83,7 +85,9 @@ if(isset($uid)) {
         $db -> close();
         return;
     }else{
-        sendResponce(200, "ok", $result->fetch_assoc());
+        $data = $result->fetch_assoc();
+        $data['GROUPS'] = getArrayFromNumberString(data['GROUPS']);
+        sendResponce(200, "ok", $data);
         $result -> close();
         $query -> close();
         $db -> close();

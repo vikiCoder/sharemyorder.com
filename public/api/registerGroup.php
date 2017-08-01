@@ -6,8 +6,6 @@ $rest_json = file_get_contents("php://input");
 $_POST = json_decode($rest_json, true);
 extract($_POST);
 
-$password = hash('sha512', $DB_salt + $password);
-
 $db = new mysqli($DB_host, $DB_user, $DB_password, $DB_database);
 if($db -> connect_error){
     sendResponce(500, "Connect Error-" . $db->connect_errno . ": could not connect to database", null);
@@ -15,14 +13,15 @@ if($db -> connect_error){
     return;
 }
 
-$query = $db -> prepare("INSERT INTO $DB_table_users (UNAME, FNAME, LNAME, EMAIL, PASSWORD, MOBILE, PINCODE, COLLAGE) VALUES (?,?,?,?,?,?,?,?)");
+$query = $db -> prepare("INSERT INTO $DB_table_groups (USERS) VALUES (?)");
 if(!$query){
     sendResponce(500, "Wrong query prepare statement", null);
     $db -> close();
     return;
 }
 
-if(!$query -> bind_param('ssssssss', $uname, $fname, $lname, $email, $password, $mobile, $pincode, $collage)){
+$emptyString = "";
+if(!$query -> bind_param("s", $emptyString)){
     sendResponce(500, "Wrong query parameters", null);
     $query -> close();
     $db -> close();
@@ -30,8 +29,8 @@ if(!$query -> bind_param('ssssssss', $uname, $fname, $lname, $email, $password, 
 }
 
 if($query -> execute()){
-    $data['UID'] = $db -> insert_id;
-    sendResponce(200, "Registered successfully", data);
+    $data['GID'] = $db -> insert_id;
+    sendResponce(200, "Group successfully created", data);
     $query -> close();
     $db -> close();
 }else{
