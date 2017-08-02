@@ -9,35 +9,27 @@ extract($_POST);
 $db = new mysqli($DB_host, $DB_user, $DB_password, $DB_database);
 if($db -> connect_error){
     sendResponce(500, "Connect Error-" . $db->connect_errno . ": could not connect to database", null);
-    $db -> close();
-    return;
+    exit(1);
 }
 
 $query = $db -> prepare("INSERT INTO $DB_table_groups (USERS) VALUES (?)");
 if(!$query){
     sendResponce(500, "Wrong query prepare statement", null);
-    $db -> close();
-    return;
+    exit(1);
 }
 
 $emptyString = "";
 if(!$query -> bind_param("s", $emptyString)){
     sendResponce(500, "Wrong query parameters", null);
-    $query -> close();
-    $db -> close();
-    return;
+    exit(1);
 }
 
 if($query -> execute()){
     $data['GID'] = $db -> insert_id;
     sendResponce(200, "Group successfully created", $data);
-    $query -> close();
-    $db -> close();
 }else{
     sendResponce(500, "Database Error-" . $query->errno . ": could not register the user", null);
-    $query -> close();
-    $db -> close();
-    return;
+    exit(1);
 }
 
 ?>

@@ -9,8 +9,7 @@ extract($_POST);
 $db = new mysqli($DB_host, $DB_user, $DB_password, $DB_database);
 if($db -> connect_error){
     sendResponce(500, "Connect Error-" . $db->connect_errno . ": could not connect to database", null);
-    $db -> close();
-    return;
+    exit(1);
 }
 
 if(isset($users)){
@@ -18,57 +17,45 @@ if(isset($users)){
     $query = $db -> prepare("SELECT USERS FROM $DB_table_groups WHERE GID=?");
     if(!$query){
         sendResponce(500, "Wrong query prepare statement", null);
-        $db -> close();
-        return;
+        exit(1);
     }
 
     if(!$query -> bind_param("i", $gid)){
         sendResponce(500, "Wrong query parameters", null);
-        $query -> close();
-        $db -> close();
-        return;
+        exit(1);
     }
 
     if(!$query -> execute()){
         sendResponce(500, "Database Error-" . $query->errno . ": could not find the group", null);
-        $query -> close();
-        $db -> close();
-        return;
+        exit(1);
     }
 
     $result = $query -> get_result();
     if($result->num_rows != 1){
         sendResponce(500, "Invalid group number", null);
-        $result -> close();
-        $query -> close();
-        $db -> close();
-        return;
+        exit(1);
     }
 
     $result = $result -> fetch_assoc();
     $result = $result['USERS'];
     $users = $result . $DB_seperator_1 . $users;
 
-    $query -> close();
     $query = $db -> prepare("UPDATE $DB_table_groups SET USERS=? WHERE GID=?");
     if(!$query){
         sendResponce(500, "Wrong query prepare statement", null);
-        $db -> close();
-        return;
+        exit(1);
     }
 
     if(!$query -> bind_param("si", $users, $gid)){
         sendResponce(500, "Wrong query parameters", null);
-        $query -> close();
-        $db -> close();
-        return;
+        exit(1);
     }
 
     if(!$query -> execute()){
-        sendResponce(500, "Database Error-" . $query->errno . ": could not get the user", null);
-        $query -> close();
-        $db -> close();
-        return;
+        sendResponce(500, "Database Error-" . $query->errno . ": could not add to group", null);
+        exit(1);
+    }else{
+        sendResponce(200, "ok", null);
     }
 
 }else if(isset($messages)){
@@ -76,31 +63,23 @@ if(isset($users)){
     $query = $db -> prepare("SELECT MESSAGES FROM $DB_table_groups WHERE GID=?");
     if(!$query){
         sendResponce(500, "Wrong query prepare statement", null);
-        $db -> close();
-        return;
+        exit(1);
     }
 
     if(!$query -> bind_param("i", $gid)){
         sendResponce(500, "Wrong query parameters", null);
-        $query -> close();
-        $db -> close();
-        return;
+        exit(1);
     }
 
     if(!$query -> execute()){
-        sendResponce(500, "Database Error-" . $query->errno . ": could not get the user", null);
-        $query -> close();
-        $db -> close();
-        return;
+        sendResponce(500, "Database Error-" . $query->errno . ": could not find the group", null);
+        exit(1);
     }
 
     $result = $query -> get_result();
     if($result->num_rows != 1){
-        sendResponce(500, "Invalid login details", null);
-        $result -> close();
-        $query -> close();
-        $db -> close();
-        return;
+        sendResponce(500, "Invalid group number", null);
+        exit(1);
     }
 
     $result = $result -> fetch_assoc();
@@ -109,22 +88,19 @@ if(isset($users)){
     $query = $db -> prepare("UPDATE $DB_table_groups SET MESSAGES=? WHERE GID=?");
     if(!$query){
         sendResponce(500, "Wrong query prepare statement", null);
-        $db -> close();
-        return;
+        exit(1);
     }
 
     if(!$query -> bind_param("si", $messages, $gid)){
         sendResponce(500, "Wrong query parameters", null);
-        $query -> close();
-        $db -> close();
-        return;
+        exit(1);
     }
 
     if(!$query -> execute()){
-        sendResponce(500, "Database Error-" . $query->errno . ": could not get the user", null);
-        $query -> close();
-        $db -> close();
-        return;
+        sendResponce(500, "Database Error-" . $query->errno . ": could not send the message", null);
+        exit(1);
+    }else{
+        sendResponce(200, "ok", null);
     }
 
 }
