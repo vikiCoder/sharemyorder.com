@@ -10,7 +10,7 @@ function sendResponce($status, $status_message, $data){
 
 function getArrayFromNumberString($str){
     $arr = explode(";", $str);
-    return arr;
+    return $arr;
 }
 
 ?>

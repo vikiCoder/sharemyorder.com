@@ -30,7 +30,7 @@ if(!$query -> bind_param("s", $emptyString)){
 
 if($query -> execute()){
     $data['GID'] = $db -> insert_id;
-    sendResponce(200, "Group successfully created", data);
+    sendResponce(200, "Group successfully created", $data);
     $query -> close();
     $db -> close();
 }else{

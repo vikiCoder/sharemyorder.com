@@ -1,9 +1,19 @@
 <?php
 require_once 'dbInfo.php';
+require_once 'helperFunctions.php';
 
 $rest_json = file_get_contents("php://input");
 $_POST = json_decode($rest_json, true);
 extract($_POST);
+
+//$uname = "viki";
+//$fname = "Premang";
+//$lname = "Vikani";
+//$email = "premangvikani@gmail.com";
+//$password = "123";
+//$mobile = "9408231332";
+//$pincode = "360005";
+//$collage = "DAIICT";
 
 $password = hash('sha512', $DB_salt + $password);
 
@@ -86,7 +96,7 @@ if(isset($uid)) {
         return;
     }else{
         $data = $result->fetch_assoc();
-        $data['GROUPS'] = getArrayFromNumberString(data['GROUPS']);
+        $data['GROUPS'] = getArrayFromNumberString($data['GROUPS']);
         sendResponce(200, "ok", $data);
         $result -> close();
         $query -> close();

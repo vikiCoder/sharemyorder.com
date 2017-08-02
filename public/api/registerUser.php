@@ -6,6 +6,15 @@ $rest_json = file_get_contents("php://input");
 $_POST = json_decode($rest_json, true);
 extract($_POST);
 
+//$uname = "viki";
+//$fname = "Premang";
+//$lname = "Vikani";
+//$email = "premangvikani@gmail.com";
+//$password = "123";
+//$mobile = "9408231332";
+//$pincode = "360005";
+//$collage = "DAIICT";
+
 $password = hash('sha512', $DB_salt + $password);
 
 $db = new mysqli($DB_host, $DB_user, $DB_password, $DB_database);
