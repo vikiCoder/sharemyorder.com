@@ -9,5 +9,7 @@ $DB_table_users = 'users';
 $DB_table_groups = 'groups';
 
 $DB_salt = 'sharemyorder%com';
+$DB_seperator_1 = ';%;';
+$DB_seperator_2 = '@@@';
 
 ?>

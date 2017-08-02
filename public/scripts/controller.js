@@ -20,7 +20,6 @@ myApp.config(['$routeProvider', function ($routeProvider) {
 myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$location', function ($scope, $log, $http, $window, $location) {
     $scope.selectedcollage = "collage";
     $scope.collages = ["DAIICT", "PDPU", "NIRMA", "IITB", "IITGN"];
-    console.log($scope.collages);
     $scope.signup = function () {
 
 
@@ -36,7 +35,6 @@ myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$locat
         }
 
 
-        console.log("Coming to Signup controller with " + userAuthdata.fname);
 
 
 // $http.get('http://localhost:8888/followed/'+item).then(function (success){
@@ -54,10 +52,13 @@ myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$locat
 
         $http.post('../api/registerUser.php', userAuthdata).then(function (success) {
 
-            console.log("......................" + JSON.stringify(userAuthdata));
+            if (success.data.status == 200) {
+                gotoMainPage(success.data.data.UID);
+            }else{
+                console.log(success.data.status_message);
+            }
 
-            console.log("Account Successfully created!" + success.data);
-            gotoMainPage();
+
 
         }, function (error) {
             console.log("Error in making new Account!");

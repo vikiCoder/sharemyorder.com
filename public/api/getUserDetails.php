@@ -15,8 +15,6 @@ extract($_POST);
 //$pincode = "360005";
 //$collage = "DAIICT";
 
-$password = hash('sha512', $DB_salt + $password);
-
 $db = new mysqli($DB_host, $DB_user, $DB_password, $DB_database);
 if($db -> connect_error){
     sendResponce(500, "Connect Error-" . $db->connect_errno . ": could not connect to database", null);
@@ -56,7 +54,7 @@ if(isset($uid)) {
         return;
     }else{
         $data = $result->fetch_assoc();
-        $data['GROUPS'] = getArrayFromNumberString(data['GROUPS']);
+        $data['GROUPS'] = getArrayFromString($data['GROUPS'], $DB_seperator_1);
         sendResponce(200, "ok", $data);
         $result -> close();
         $query -> close();
@@ -65,6 +63,7 @@ if(isset($uid)) {
     }
 
 }else{
+    $password = hash('sha512', $DB_salt + $password);
 
     $query = $db->prepare("SELECT UID,UNAME,FNAME,LNAME,EMAIL,MOBILE,PINCODE,COLLAGE,GROUPS FROM $DB_table_users WHERE EMAIL=? AND PASSWORD=?");
     if(!$query){
@@ -96,7 +95,7 @@ if(isset($uid)) {
         return;
     }else{
         $data = $result->fetch_assoc();
-        $data['GROUPS'] = getArrayFromNumberString($data['GROUPS']);
+        $data['GROUPS'] = getArrayFromString($data['GROUPS'], $DB_seperator_1);
         sendResponce(200, "ok", $data);
         $result -> close();
         $query -> close();

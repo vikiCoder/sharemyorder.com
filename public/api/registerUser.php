@@ -40,7 +40,7 @@ if(!$query -> bind_param('ssssssss', $uname, $fname, $lname, $email, $password, 
 
 if($query -> execute()){
     $data['UID'] = $db -> insert_id;
-    sendResponce(200, "Registered successfully", data);
+    sendResponce(200, "Registered successfully", $data);
     $query -> close();
     $db -> close();
 }else{

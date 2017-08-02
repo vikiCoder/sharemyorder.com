@@ -8,8 +8,8 @@ function sendResponce($status, $status_message, $data){
     echo json_encode($response);
 }
 
-function getArrayFromNumberString($str){
-    $arr = explode(";", $str);
+function getArrayFromString($str, $seperator){
+    $arr = explode($seperator, $str);
     return $arr;
 }
 
