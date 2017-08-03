@@ -2,9 +2,7 @@
 require_once 'dbInfo.php';
 require_once 'helperFunctions.php';
 
-$rest_json = file_get_contents("php://input");
-$_POST = json_decode($rest_json, true);
-extract($_POST);
+/*No POST parameters required*/
 
 $db = new mysqli($DB_host, $DB_user, $DB_password, $DB_database);
 if($db -> connect_error){

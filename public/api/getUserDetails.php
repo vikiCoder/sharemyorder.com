@@ -2,9 +2,9 @@
 require_once 'dbInfo.php';
 require_once 'helperFunctions.php';
 
-$rest_json = file_get_contents("php://input");
-$_POST = json_decode($rest_json, true);
-extract($_POST);
+/*Required POST parameters
+uid / email, password
+*/
 
 //$uname = "viki";
 //$fname = "Premang";
@@ -14,6 +14,11 @@ extract($_POST);
 //$mobile = "9408231332";
 //$pincode = "360005";
 //$collage = "DAIICT";
+if(sizeof($_POST)==0) {
+    $rest_json = file_get_contents("php://input");
+    $_POST = json_decode($rest_json, true);
+    extract($_POST);
+}
 
 $db = new mysqli($DB_host, $DB_user, $DB_password, $DB_database);
 if($db -> connect_error){

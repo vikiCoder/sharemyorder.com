@@ -2,6 +2,8 @@
 require_once 'dbInfo.php';
 require_once 'helperFunctions.php';
 
+/*No POST parameters required*/
+
 $db = new mysqli($DB_host, $DB_user, $DB_password);
 if($db -> connect_error){
     sendResponce(500, "Connect Error-" . $db->connect_errno . ": could not connect to database", null);
@@ -35,5 +37,5 @@ if(!$db -> query($query)) {
     exit(1);
 }
 
-sendResponce(200, "ok", null);
+sendResponce(200, "Database is ready", null);
 ?>

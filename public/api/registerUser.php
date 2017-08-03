@@ -2,18 +2,21 @@
 require_once 'dbInfo.php';
 require_once 'helperFunctions.php';
 
-$rest_json = file_get_contents("php://input");
-$_POST = json_decode($rest_json, true);
-extract($_POST);
+/*Required POST parameters
+Must: uname, email, password, mobile
+Optional: fname, lname, pincode, collage
+*/
 
-//$uname = "viki";
-//$fname = "Premang";
-//$lname = "Vikani";
-//$email = "premangvikani@gmail.com";
-//$password = "123";
-//$mobile = "9408231332";
-//$pincode = "360005";
-//$collage = "DAIICT";
+//$uname = "b";
+//$email = "b@b";
+//$password = "b";
+//$mobile = "1";
+
+if(sizeof($_POST)==0) {
+    $rest_json = file_get_contents("php://input");
+    $_POST = json_decode($rest_json, true);
+    extract($_POST);
+}
 
 $password = hash('sha512', $DB_salt + $password);
 

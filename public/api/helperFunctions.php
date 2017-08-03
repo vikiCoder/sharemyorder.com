@@ -10,6 +10,9 @@ function sendResponce($status, $status_message, $data){
 
 function getArrayFromString($str, $seperator){
     $arr = explode($seperator, $str);
+    if($arr[0] == "")
+        array_shift($arr);
+
     return $arr;
 }
 
