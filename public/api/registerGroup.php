@@ -4,6 +4,8 @@ require_once 'helperFunctions.php';
 
 /*No POST parameters required*/
 
+header('Content-Type: application/json');
+
 $db = new mysqli($DB_host, $DB_user, $DB_password, $DB_database);
 if($db -> connect_error){
     sendResponce(500, "Connect Error-" . $db->connect_errno . ": could not connect to database", null);

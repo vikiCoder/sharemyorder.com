@@ -14,6 +14,9 @@ uid / email, password
 //$mobile = "9408231332";
 //$pincode = "360005";
 //$collage = "DAIICT";
+
+header('Content-Type: application/json');
+
 if(sizeof($_POST)==0) {
     $rest_json = file_get_contents("php://input");
     $_POST = json_decode($rest_json, true);
