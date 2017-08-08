@@ -1,0 +1,105 @@
+*{
+    padding:0px;
+    margin:0px;
+}
+body{
+    background-color: #EEEEEE;
+}
+.myname{
+    padding:10px;
+}
+.username{
+    padding:20px;
+    color:white;
+}
+.mybars{
+    height:2px;
+    width:15px;
+    margin:3px;
+    border-radius: 2px;
+    background-color: white;
+
+}
+
+.themaincontainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.eachgroup{
+    background-color: white;
+    margin-top: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #EEEEEE;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.24);
+}
+
+.thetopsection{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding:10px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.themiddlesection{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding:10px;
+    border-bottom: 1px solid #EEEEEE;
+}
+.buyertitle{
+    padding:5px;
+}
+.thefootersection{
+
+
+}
+
+.buyer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding:10px;
+    border:1px solid #EEEEEE;
+    border-radius: 5px;
+    width:70%;
+}
+
+.buyerimagecontainer{
+    height:40px;
+    width:40px;
+    display: flex;
+    border-radius: 5px;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    overflow-y: hidden;
+    margin-right: 20px;
+}
+
+.buyerimage{
+    width:100%;
+}
+
+.topfields span{
+    font-weight: bold;
+}
+.sendjoinreq{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.mynavcontainer{
+    background-color: #292929;
+}
+#mynbar{
+    background-color: #292929;
+}

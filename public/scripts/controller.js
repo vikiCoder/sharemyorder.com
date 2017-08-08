@@ -20,13 +20,15 @@ myApp.config(['$routeProvider', function ($routeProvider) {
 myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$location', function ($scope, $log, $http, $window, $location) {
     $scope.selectedcollage = "collage";
     $scope.collages = ["DAIICT", "PDPU", "NIRMA", "IITB", "IITGN"];
+    console.log($scope.collages);
     $scope.signup = function () {
 
 
         var userAuthdata = {
-            uname: $scope.unamesu,
+            uname:$scope.unamesu,
             fname: $scope.fnamesu,
             lname: $scope.snamesu,
+
             email: $scope.emailidsu,
             password: $scope.passwsu,
             mobile: $scope.mobilenosu,
@@ -35,6 +37,7 @@ myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$locat
         }
 
 
+        //console.log("Coming to Signup controller with " + userAuthdata.firstname);
 
 
 // $http.get('http://localhost:8888/followed/'+item).then(function (success){
@@ -52,13 +55,13 @@ myApp.controller('AppCtrlSignup', ['$scope', '$log', '$http', '$window', '$locat
 
         $http.post('../api/registerUser.php', userAuthdata).then(function (success) {
 
-            if (success.data.status == 200) {
+
+            console.log("Account Successfully created!" + success.data);
+            console.log(success.data.status);
+            if(success.data.status == 200)
                 gotoMainPage(success.data.data.UID);
-            }else{
+            else
                 console.log(success.data.status_message);
-            }
-
-
 
         }, function (error) {
             console.log("Error in making new Account!");

@@ -20,7 +20,7 @@ myApp.config(['$routeProvider',function($routeProvider){
 
 myApp.controller('AppCtrl', ['$scope', '$log', '$http', '$window', '$location', function ($scope, $log, $http, $window, $location) {
     $scope.id = localStorage.getItem("uid");
-
+    console.log($scope.id+" -----");
     $http.post('../api/getUserDetails.php', {uid:$scope.id}).then(function (success) {
 
         if (success.data.status == 200) {
