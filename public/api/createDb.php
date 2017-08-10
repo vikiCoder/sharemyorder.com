@@ -4,6 +4,10 @@ require_once 'helperFunctions.php';
 
 /*No POST parameters required*/
 
+/*Error codes:
+    1062: email already registered
+*/
+
 header('Content-Type: application/json');
 
 $db = new mysqli($DB_host, $DB_user, $DB_password);
@@ -26,7 +30,7 @@ if($db -> query($query)) {
 }
 
 //creating user table
-$query = "CREATE TABLE IF NOT EXISTS $DB_table_users (UID INT PRIMARY KEY AUTO_INCREMENT, UNAME VARCHAR(70) NOT NULL, FNAME VARCHAR(35), LNAME VARCHAR(35), EMAIL VARCHAR(256) NOT NULL, PASSWORD VARCHAR(128) NOT NULL, MOBILE VARCHAR(15) NOT NULL, PINCODE VARCHAR(11), COLLAGE VARCHAR(200), GROUPS VARCHAR(200) )";
+$query = "CREATE TABLE IF NOT EXISTS $DB_table_users (UID INT PRIMARY KEY AUTO_INCREMENT, UNAME VARCHAR(70) NOT NULL, FNAME VARCHAR(35), LNAME VARCHAR(35), EMAIL VARCHAR(256) UNIQUE NOT NULL, PASSWORD VARCHAR(128) NOT NULL, MOBILE VARCHAR(15) NOT NULL, PINCODE VARCHAR(11), COLLAGE VARCHAR(200), GROUPS VARCHAR(200) )";
 if(!$db -> query($query)) {
     sendResponce(500, "Database Error-" . $db->errno . ": user's database is not created", null);
     exit(1);

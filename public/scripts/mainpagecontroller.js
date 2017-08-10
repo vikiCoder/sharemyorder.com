@@ -19,7 +19,7 @@ myApp.config(['$routeProvider',function($routeProvider){
 }]);
 
 myApp.controller('AppCtrl', ['$scope', '$log', '$http', '$window', '$location', function ($scope, $log, $http, $window, $location) {
-    $scope.id = localStorage.getItem("uid");
+    $scope.id = getCookie('UID');
     console.log($scope.id+" -----");
     $http.post('../api/getUserDetails.php', {uid:$scope.id}).then(function (success) {
 
@@ -34,4 +34,18 @@ myApp.controller('AppCtrl', ['$scope', '$log', '$http', '$window', '$location', 
     });
 }]);
 
-
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
