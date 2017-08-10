@@ -9,8 +9,8 @@ message
 */
 
 //$gid = 1;
-//$uname = 'b';
-//$message = "How are you?";
+//$uname = 'a';
+//$message = "I am fine.";
 
 header('Content-Type: application/json');
 

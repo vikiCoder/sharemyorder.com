@@ -7,8 +7,8 @@ uid
 gid
 */
 
-//$uid = 1;
-//$gid = 2;
+//$uid = 2;
+//$gid = 1;
 
 header('Content-Type: application/json');
 

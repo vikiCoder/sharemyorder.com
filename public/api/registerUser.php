@@ -10,7 +10,7 @@ Optional: fname, lname, pincode, collage
 //$uname = "b";
 //$email = "b@b";
 //$password = "b";
-//$mobile = "1";
+//$mobile = "b";
 
 header('Content-Type: application/json');
 
