@@ -6,6 +6,23 @@ require_once 'helperFunctions.php';
 gid
 */
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string",
+    "data":{
+        "BUYER":"number",
+        "PRICE":"number",
+        "COLLAGE":"string",
+        "USERS":{
+            "1":[array of strings denoting order urls],
+            "2":[array of strings denoting order urls],
+            ....
+        }
+    }
+}
+*/
+
 //$gid = 1;
 
 header('Content-Type: application/json');

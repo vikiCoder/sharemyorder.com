@@ -6,6 +6,13 @@ require_once 'helperFunctions.php';
 gid
 */
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string"
+}
+*/
+
 //$gid = 2;
 
 header('Content-Type: application/json');

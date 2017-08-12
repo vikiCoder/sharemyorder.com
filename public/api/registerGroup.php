@@ -4,6 +4,16 @@ require_once 'helperFunctions.php';
 
 /*No POST parameters required*/
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string",
+    "data":{
+        "GID":"number"
+    }
+}
+*/
+
 header('Content-Type: application/json');
 
 $db = new mysqli($DB_host, $DB_user, $DB_password, $DB_database);

@@ -6,6 +6,24 @@ require_once 'helperFunctions.php';
 uid / email, password
 */
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string",
+    "data":{
+        "UID":"number",
+        "UNAME":"string",
+        "FNAME":"string",
+        "LNAME":"string",
+        "EMAIL":"string",
+        "MOBILE":"string",
+        "PINCODE":"string",
+        "COLLAGE":"string",
+        "GROUPS":[array of numbers denoting group ids]
+    }
+}
+*/
+
 //$uname = "viki";
 //$fname = "Premang";
 //$lname = "Vikani";

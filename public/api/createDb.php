@@ -4,6 +4,13 @@ require_once 'helperFunctions.php';
 
 /*No POST parameters required*/
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string"
+}
+*/
+
 /*Error codes:
     1062: email already registered
 */

@@ -6,6 +6,20 @@ require_once 'helperFunctions.php';
 collage
 */
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string",
+    "data":[array of {
+        "GID":"number",
+        "BUYER":"number",
+        "PRICE":"number",
+        "COLLAGE":"string",
+        "USERS":[array of numbers denoting user ids]
+    }]
+}
+*/
+
 //$collage = 'DAIICT';
 
 header('Content-Type: application/json');

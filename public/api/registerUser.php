@@ -7,6 +7,16 @@ Must: uname, email, password, mobile
 Optional: fname, lname, pincode, collage
 */
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string",
+    "data":{
+        "UID":"number"
+    }
+}
+*/
+
 //$uname = "b";
 //$email = "b@b";
 //$password = "b";

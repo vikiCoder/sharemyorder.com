@@ -7,6 +7,13 @@ uid
 gid
 */
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string"
+}
+*/
+
 //$uid = 1;
 //$gid = 1;
 

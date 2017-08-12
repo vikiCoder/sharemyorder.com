@@ -8,6 +8,13 @@ uname
 message
 */
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string"
+}
+*/
+
 //$gid = 1;
 //$uname = 'a';
 //$message = "I am fine.";

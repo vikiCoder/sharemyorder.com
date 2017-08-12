@@ -7,6 +7,17 @@ gid
 currentLength
 */
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string",
+    "data":[array of {
+        "sender":"string",
+        "message":"string"
+    }]
+}
+*/
+
 //$gid = 1;
 //$currentLength = 1;
 
@@ -49,13 +60,15 @@ if($result->num_rows != 1){
 $result = $result -> fetch_assoc();
 $messages = $result['MESSAGES'];
 $messages = getArrayFromString($messages, $DB_separator_1);
+$data = [];
 
 if(sizeof($messages)==$currentLength){
     sendResponce(200, "No new messages", null);
 }else{
     for($i=$currentLength; $i<sizeof($messages); $i++){
         $temp = getArrayFromString($messages[$i], $DB_separator_2);
-        $data[$i-$currentLength] = ['sender'=>$temp[0], 'message'=>$temp[1]];
+        //$data[$i-$currentLength] = ['sender'=>$temp[0], 'message'=>$temp[1]];
+        array_push($data, ['sender'=>$temp[0], 'message'=>$temp[1]]);
     }
 
     sendResponce(200, "There are some new messages", $data);

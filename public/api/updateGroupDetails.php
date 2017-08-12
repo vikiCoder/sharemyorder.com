@@ -7,6 +7,13 @@ Must: gid
 Optional: buyer, item+uid+price, collage, address
 */
 
+/*Returned JSON object format
+{
+    "status":"number",
+    "status_message":"string"
+}
+*/
+
 //$gid = 1;
 //$buyer = 1;
 //$item = 'lmn.com';
