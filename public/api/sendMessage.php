@@ -49,7 +49,7 @@ if($result->num_rows != 1){
 }
 
 $result = $result -> fetch_assoc();
-$messages = $result['MESSAGES'] . $DB_seperator_1 . $uname . $DB_seperator_2 . $message;
+$messages = $result['MESSAGES'] . $DB_separator_1 . $uname . $DB_separator_2 . $message;
 
 $query = $db -> prepare("UPDATE $DB_table_groups SET MESSAGES=? WHERE GID=?");
 if(!$query){

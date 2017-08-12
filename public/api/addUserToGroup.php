@@ -50,7 +50,7 @@ if($result->num_rows != 1){
 
 $result = $result -> fetch_assoc();
 $result = $result['GROUPS'];
-$groups = $result . $DB_seperator_1 . $gid;
+$groups = $result . $DB_separator_1 . $gid;
 
 $query = $db -> prepare("UPDATE $DB_table_users SET GROUPS=? WHERE UID=?");
 if(!$query){
@@ -94,7 +94,7 @@ if($result->num_rows != 1){
 
 $result = $result -> fetch_assoc();
 $result = $result['USERS'];
-$users = $result . $DB_seperator_1 . $uid;
+$users = $result . $DB_separator_1 . $uid;
 
 $query = $db -> prepare("UPDATE $DB_table_groups SET USERS=? WHERE GID=?");
 if(!$query){

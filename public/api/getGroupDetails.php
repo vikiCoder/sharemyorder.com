@@ -6,7 +6,7 @@ require_once 'helperFunctions.php';
 gid
 */
 
-$gid = 1;
+//$gid = 1;
 
 header('Content-Type: application/json');
 
@@ -49,13 +49,13 @@ if($result->num_rows != 1){
     $data['PRICE'] = $result['PRICE'];
     $data['COLLAGE'] = $result['COLLAGE'];
 
-    $users = getArrayFromString($result['USERS'], $DB_seperator_1);
-    $items = getArrayFromString($result['ITEMS'], $DB_seperator_1);
+    $users = getArrayFromString($result['USERS'], $DB_separator_1);
+    $items = getArrayFromString($result['ITEMS'], $DB_separator_1);
 
     foreach ($users as $user){
         $temp = [];
         foreach ($items as $item){
-            $item = getArrayFromString($item, $DB_seperator_2);
+            $item = getArrayFromString($item, $DB_separator_2);
             if($item[0] == $user)
                 array_push($temp, $item[1]);
         }

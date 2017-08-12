@@ -52,9 +52,9 @@ $result = $result -> fetch_assoc();
 $result = $result['GROUPS'];
 $groups = "";
 
-foreach(getArrayFromString($result, $DB_seperator_1) as $group){
+foreach(getArrayFromString($result, $DB_separator_1) as $group){
     if($group != $gid)
-        $groups = $groups . $DB_seperator_1 . $group;
+        $groups = $groups . $DB_separator_1 . $group;
 }
 
 $query = $db -> prepare("UPDATE $DB_table_users SET GROUPS=? WHERE UID=?");
@@ -101,9 +101,9 @@ $result = $result -> fetch_assoc();
 $result = $result['USERS'];
 $users = "";
 
-foreach(getArrayFromString($result, $DB_seperator_1) as $user){
+foreach(getArrayFromString($result, $DB_separator_1) as $user){
     if($user != $uid)
-        $users = $users . $DB_seperator_1 . $user;
+        $users = $users . $DB_separator_1 . $user;
 }
 
 $query = $db -> prepare("UPDATE $DB_table_groups SET USERS=? WHERE GID=?");

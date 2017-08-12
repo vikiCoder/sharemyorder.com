@@ -53,7 +53,7 @@ if(isset($uid)) {
         exit(1);
     }else{
         $data = $result->fetch_assoc();
-        $data['GROUPS'] = getArrayFromString($data['GROUPS'], $DB_seperator_1);
+        $data['GROUPS'] = getArrayFromString($data['GROUPS'], $DB_separator_1);
         sendResponce(200, "ok", $data);
     }
 
@@ -82,7 +82,7 @@ if(isset($uid)) {
         exit(1);
     }else{
         $data = $result->fetch_assoc();
-        $data['GROUPS'] = getArrayFromString($data['GROUPS'], $DB_seperator_1);
+        $data['GROUPS'] = getArrayFromString($data['GROUPS'], $DB_separator_1);
         sendResponce(200, "ok", $data);
     }
 

@@ -48,13 +48,13 @@ if($result->num_rows != 1){
 
 $result = $result -> fetch_assoc();
 $messages = $result['MESSAGES'];
-$messages = getArrayFromString($messages, $DB_seperator_1);
+$messages = getArrayFromString($messages, $DB_separator_1);
 
 if(sizeof($messages)==$currentLength){
     sendResponce(200, "No new messages", null);
 }else{
     for($i=$currentLength; $i<sizeof($messages); $i++){
-        $temp = getArrayFromString($messages[$i], $DB_seperator_2);
+        $temp = getArrayFromString($messages[$i], $DB_separator_2);
         $data[$i-$currentLength] = ['sender'=>$temp[0], 'message'=>$temp[1]];
     }
 

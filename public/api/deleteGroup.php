@@ -44,7 +44,7 @@ $result = $query -> get_result();
 $result = $result -> fetch_assoc();
 $result = $result['USERS'];
 
-foreach(getArrayFromString($result, $DB_seperator_1) as $uid){
+foreach(getArrayFromString($result, $DB_separator_1) as $uid){
     ob_start();
     include 'removeUserFromGroup.php';
     ob_end_clean();
