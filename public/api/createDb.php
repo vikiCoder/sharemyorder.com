@@ -37,7 +37,7 @@ if(!$db -> query($query)) {
 }
 
 //creating groups table
-$query = "CREATE TABLE IF NOT EXISTS $DB_table_groups (GID INT PRIMARY KEY AUTO_INCREMENT, USERS VARCHAR(200), MESSAGES MEDIUMTEXT, ADDRESS VARCHAR(100))";
+$query = "CREATE TABLE IF NOT EXISTS $DB_table_groups (GID INT PRIMARY KEY AUTO_INCREMENT, USERS VARCHAR(200), BUYER INT, ITEMS VARCHAR(500), PRICE INT DEFAULT '0', COLLAGE VARCHAR(200), MESSAGES MEDIUMTEXT, ADDRESS VARCHAR(100))";
 if(!$db -> query($query)) {
     sendResponce(500, "Database Error-" . $db->errno . ": group's database is not created", null);
     exit(1);
