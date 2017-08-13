@@ -84,10 +84,13 @@ myApp.controller('AppCtrlLogin', ['$scope', '$log', '$http', '$window', function
             password: $scope.passw
         }
 
-        $http.post('/loginuser', userAuthdata).then(function (success) {
+        $http.post('../api/getUserDetails.php', userAuthdata).then(function (success) {
 
-
-            console.log("Logged In!");
+            if(success.data.status == 200){
+                gotoMainPage(success.data.data.UID);
+            }else{
+                console.log(success.data.status_message);
+            }
 
         }, function (error) {
             console.log("Error in login !");

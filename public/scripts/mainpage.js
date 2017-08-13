@@ -21,3 +21,15 @@ function showItemformreq(){
 function hideFormreq(){
     document.getElementById("myItemformreq").style.display = "none";
 }
+
+function logOut() {
+    deleteCookie('UID');
+    window.location = "index.php";
+}
+
+function deleteCookie(cname) {
+    var d = new Date();
+    d.setTime(d.getTime() + (-1*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + ";" + expires + ";path=/";
+}
