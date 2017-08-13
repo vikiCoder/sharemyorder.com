@@ -8,9 +8,20 @@ body{
 .myname{
     padding:10px;
 }
+.colorwhite{
+    color: white;
+}
 .username{
-    padding:20px;
     color:white;
+    margin-top:10px;
+}
+.clickabletop{
+    cursor: pointer;
+
+}
+.clickabletop:hover{
+    background-color: #EEEEEE;
+    color:#292929;
 }
 .mybars{
     height:2px;
@@ -57,12 +68,15 @@ body{
 }
 .buyertitle{
     padding:5px;
+    margin-top: 15px;
 }
 .thefootersection{
 
 
 }
-
+.grouplabel{
+    margin-top: 50px;
+}
 .buyer{
     display: flex;
     flex-direction: row;
@@ -102,4 +116,26 @@ body{
 }
 #mynbar{
     background-color: #292929;
+}
+
+
+.store {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.store:hover {
+    background-color: #292929;
+    color: white;
+}
+
+.eachitem{
+    display:flex;
+    flex-direction:row;
+    padding:10px;
+    justify-content: space-around;
+    background-color: #5E5E5E;
+    color:white;
+    border-radius: 5px;
+    margin:5px;
 }
