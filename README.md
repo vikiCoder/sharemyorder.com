@@ -1,15 +1,16 @@
 # for the students contributing in DAWoC (DA Winter of Code)
 
 # sharemyorder.com
-# A website for collage students where students can buy things online in group , so that the extra delivery charge on item can be reduced or removed. a student can join a group or create his/her own group and also can chat in a group.
 
-# "api" folder contains the backend code for handling requests and database
+A website for collage students where students can buy things online in group , so that the extra delivery charge on item can be reduced or removed. a student can join a group or create his/her own group and also can chat in a group.
 
-# "pages" folder contains the html pages
+ "api" folder contains the backend code for handling requests and database
 
-# "scripts" folder contains the javascripts and angularJS files
+ "pages" folder contains the html pages
 
-# "styles" folder contains the CSS styles
+ "scripts" folder contains the javascripts and angularJS files
+
+ "styles" folder contains the CSS styles
 
 for any query:
 contact: Premang Vikani  (+91 94082 31332) (Room No- C114)
